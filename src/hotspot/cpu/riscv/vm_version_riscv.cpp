@@ -207,6 +207,15 @@ void VM_Version::get_processor_features() {
     UseVExt = true;
   }
 
+  if (UseVExt) {
+    if (!UnlockExperimentalVMOptions) {
+      vm_exit_during_initialization("UseVExt is only available as experimental option on this "
+                                    "platform. It must be enabled via -XX:+UnlockExperimentalVMOptions flag.");
+    } else {
+      warning("UseVExt is only available as experimental option on this platform.");
+    }
+  }
+
   if (FLAG_IS_DEFAULT(AvoidUnalignedAccesses)) {
     FLAG_SET_DEFAULT(AvoidUnalignedAccesses, true);
   }
