@@ -231,7 +231,7 @@ void FrameMap::initialize() {
 
   // special register
   map_register(i, x0);  zr_opr  = LIR_OprFact::single_cpu(i); i++;  // zr
-  map_register(i, x1);  r1_opr  = LIR_OprFact::single_cpu(i); i++;  // lr
+  map_register(i, x1);  r1_opr  = LIR_OprFact::single_cpu(i); i++;  // ra
   map_register(i, x2);  r2_opr  = LIR_OprFact::single_cpu(i); i++;  // sp
   map_register(i, x4);  r4_opr  = LIR_OprFact::single_cpu(i); i++;  // thread
   map_register(i, x8);  r8_opr  = LIR_OprFact::single_cpu(i); i++;  // fp

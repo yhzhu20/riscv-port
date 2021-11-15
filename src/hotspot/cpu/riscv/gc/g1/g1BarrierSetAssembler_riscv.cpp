@@ -432,7 +432,7 @@ void G1BarrierSetAssembler::generate_c1_post_barrier_runtime_stub(StubAssembler*
 
   const Register card_offset = t1;
   // LR is free here, so we can use it to hold the byte_map_base.
-  const Register byte_map_base = lr;
+  const Register byte_map_base = ra;
 
   assert_different_registers(card_offset, byte_map_base, t0);
 
@@ -464,7 +464,7 @@ void G1BarrierSetAssembler::generate_c1_post_barrier_runtime_stub(StubAssembler*
   __ sd(t0, queue_index);
 
   // Reuse LR to hold buffer_addr
-  const Register buffer_addr = lr;
+  const Register buffer_addr = ra;
 
   __ ld(buffer_addr, buffer);
   __ add(t0, buffer_addr, t0);
